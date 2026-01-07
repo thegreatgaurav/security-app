@@ -146,26 +146,29 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF5B8078);
-  late Color secondary = const Color(0xFFDEEEEB);
-  late Color tertiary = const Color(0xFFEE8B60);
-  late Color alternate = const Color(0xFFE0E3E7);
-  late Color primaryText = const Color(0xFF14181B);
-  late Color secondaryText = const Color(0xFF696969);
-  late Color primaryBackground = const Color(0xFFF1F4F8);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0x4C4B39EF);
-  late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0x4DEE8B60);
+  // 2025 baseline palette (Client role default = Blue).
+  // Vendor role suggestion: primary #F97316. Worker role suggestion: primary #16A34A.
+  late Color primary = const Color(0xFF2563EB); // Blue (trust & discovery)
+  late Color secondary = const Color(0xFFEFF6FF); // Blue tint surface
+  late Color tertiary = const Color(0xFFF97316); // Orange accent (optional)
+  late Color alternate = const Color(0xFFE6E8EC); // Borders / dividers
+  late Color primaryText = const Color(0xFF111827);
+  late Color secondaryText = const Color(0xFF6B7280);
+  late Color primaryBackground = const Color(0xFFF6F7F9); // Neutral page bg
+  late Color secondaryBackground = const Color(0xFFFFFFFF); // Surface
+  late Color accent1 = const Color(0x1A2563EB); // 10% primary
+  late Color accent2 = const Color(0x14000000); // Soft shadow tint
+  late Color accent3 = const Color(0x1AF97316); // 10% orange
   late Color accent4 = const Color(0xCCFFFFFF);
-  late Color success = const Color(0xFF249689);
-  late Color warning = const Color(0xFFF9CF58);
-  late Color error = const Color(0xFFFF5963);
-  late Color info = const Color(0xFFDCDCDC);
+  late Color success = const Color(0xFF16A34A);
+  late Color warning = const Color(0xFFF59E0B);
+  late Color error = const Color(0xFFEF4444);
+  late Color info = const Color(0xFF3B82F6);
 
-  late Color black20 = const Color(0xFFDCDCDC);
-  late Color lightGray = const Color(0xFFF5F5F5);
-  late Color textfiled = const Color(0xFF696969);
+  // Legacy custom fields (kept for compatibility with existing widgets).
+  late Color black20 = const Color(0xFFE6E8EC);
+  late Color lightGray = const Color(0xFFF6F7F9);
+  late Color textfiled = const Color(0xFF6B7280);
 }
 
 abstract class Typography {
@@ -226,120 +229,135 @@ class MobileTypography extends Typography {
   TextStyle get displayLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 32.0,
+        height: 1.15,
       );
   String get displayMediumFamily => 'Satoshi';
   bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 28.0,
+        height: 1.15,
       );
   String get displaySmallFamily => 'Satoshi';
   bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 36.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 28.0,
+        height: 1.2,
       );
   String get headlineLargeFamily => 'Satoshi';
   bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 32.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 24.0,
+        height: 1.2,
       );
   String get headlineMediumFamily => 'Satoshi';
   bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 20.0,
+        height: 1.25,
       );
   String get headlineSmallFamily => 'Satoshi';
   bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+        height: 1.25,
       );
   String get titleLargeFamily => 'Satoshi';
   bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
+        height: 1.25,
       );
   String get titleMediumFamily => 'Satoshi';
   bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.info,
-        fontWeight: FontWeight.normal,
-        fontSize: 18.0,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+        height: 1.3,
       );
   String get titleSmallFamily => 'Satoshi';
   bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.info,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontSize: 13.0,
+        height: 1.3,
       );
   String get labelLargeFamily => 'Satoshi';
   bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 13.0,
+        height: 1.2,
       );
   String get labelMediumFamily => 'Satoshi';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+        height: 1.2,
       );
   String get labelSmallFamily => 'Satoshi';
   bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 12.0,
+        height: 1.2,
       );
   String get bodyLargeFamily => 'Satoshi';
   bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w400,
         fontSize: 16.0,
+        height: 1.35,
       );
   String get bodyMediumFamily => 'Satoshi';
   bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w400,
         fontSize: 14.0,
+        height: 1.35,
       );
   String get bodySmallFamily => 'Satoshi';
   bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w400,
         fontSize: 12.0,
+        height: 1.35,
       );
 }
 
@@ -353,120 +371,135 @@ class TabletTypography extends Typography {
   TextStyle get displayLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 36.0,
+        height: 1.15,
       );
   String get displayMediumFamily => 'Satoshi';
   bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 32.0,
+        height: 1.15,
       );
   String get displaySmallFamily => 'Satoshi';
   bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 36.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 28.0,
+        height: 1.2,
       );
   String get headlineLargeFamily => 'Satoshi';
   bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 32.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 24.0,
+        height: 1.2,
       );
   String get headlineMediumFamily => 'Satoshi';
   bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 20.0,
+        height: 1.25,
       );
   String get headlineSmallFamily => 'Satoshi';
   bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+        height: 1.25,
       );
   String get titleLargeFamily => 'Satoshi';
   bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 16.0,
+        height: 1.25,
       );
   String get titleMediumFamily => 'Satoshi';
   bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.info,
-        fontWeight: FontWeight.normal,
-        fontSize: 18.0,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+        height: 1.3,
       );
   String get titleSmallFamily => 'Satoshi';
   bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.info,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontSize: 13.0,
+        height: 1.3,
       );
   String get labelLargeFamily => 'Satoshi';
   bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 13.0,
+        height: 1.2,
       );
   String get labelMediumFamily => 'Satoshi';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+        height: 1.2,
       );
   String get labelSmallFamily => 'Satoshi';
   bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 12.0,
+        height: 1.2,
       );
   String get bodyLargeFamily => 'Satoshi';
   bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w400,
         fontSize: 16.0,
+        height: 1.35,
       );
   String get bodyMediumFamily => 'Satoshi';
   bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w400,
         fontSize: 14.0,
+        height: 1.35,
       );
   String get bodySmallFamily => 'Satoshi';
   bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w400,
         fontSize: 12.0,
+        height: 1.35,
       );
 }
 
@@ -480,120 +513,135 @@ class DesktopTypography extends Typography {
   TextStyle get displayLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 64.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 40.0,
+        height: 1.15,
       );
   String get displayMediumFamily => 'Satoshi';
   bool get displayMediumIsCustom => true;
   TextStyle get displayMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 44.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 36.0,
+        height: 1.15,
       );
   String get displaySmallFamily => 'Satoshi';
   bool get displaySmallIsCustom => true;
   TextStyle get displaySmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 36.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 32.0,
+        height: 1.2,
       );
   String get headlineLargeFamily => 'Satoshi';
   bool get headlineLargeIsCustom => true;
   TextStyle get headlineLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 32.0,
+        fontWeight: FontWeight.w700,
+        fontSize: 28.0,
+        height: 1.2,
       );
   String get headlineMediumFamily => 'Satoshi';
   bool get headlineMediumIsCustom => true;
   TextStyle get headlineMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 22.0,
+        height: 1.25,
       );
   String get headlineSmallFamily => 'Satoshi';
   bool get headlineSmallIsCustom => true;
   TextStyle get headlineSmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 24.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 20.0,
+        height: 1.25,
       );
   String get titleLargeFamily => 'Satoshi';
   bool get titleLargeIsCustom => true;
   TextStyle get titleLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+        fontWeight: FontWeight.w600,
+        fontSize: 18.0,
+        height: 1.25,
       );
   String get titleMediumFamily => 'Satoshi';
   bool get titleMediumIsCustom => true;
   TextStyle get titleMedium => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.info,
-        fontWeight: FontWeight.normal,
-        fontSize: 18.0,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 15.0,
+        height: 1.3,
       );
   String get titleSmallFamily => 'Satoshi';
   bool get titleSmallIsCustom => true;
   TextStyle get titleSmall => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.info,
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 16.0,
+        fontSize: 13.0,
+        height: 1.3,
       );
   String get labelLargeFamily => 'Satoshi';
   bool get labelLargeIsCustom => true;
   TextStyle get labelLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 13.0,
+        height: 1.2,
       );
   String get labelMediumFamily => 'Satoshi';
   bool get labelMediumIsCustom => true;
   TextStyle get labelMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
+        height: 1.2,
       );
   String get labelSmallFamily => 'Satoshi';
   bool get labelSmallIsCustom => true;
   TextStyle get labelSmall => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.secondaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w500,
         fontSize: 12.0,
+        height: 1.2,
       );
   String get bodyLargeFamily => 'Satoshi';
   bool get bodyLargeIsCustom => true;
   TextStyle get bodyLarge => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w400,
         fontSize: 16.0,
+        height: 1.35,
       );
   String get bodyMediumFamily => 'Satoshi';
   bool get bodyMediumIsCustom => true;
   TextStyle get bodyMedium => TextStyle(
         fontFamily: 'Satoshi',
         color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        fontWeight: FontWeight.w400,
         fontSize: 14.0,
+        height: 1.35,
       );
   String get bodySmallFamily => 'Satoshi';
   bool get bodySmallIsCustom => true;
   TextStyle get bodySmall => TextStyle(
         fontFamily: 'Satoshi',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w400,
         fontSize: 12.0,
+        height: 1.35,
       );
 }
 
