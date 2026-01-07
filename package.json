@@ -1,0 +1,9 @@
+{
+  "name": "flutter-web-vercel",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "build": "bash vercel_build.sh"
+  }
+}
+
